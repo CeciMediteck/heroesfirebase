@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { HeroesService } from "../../services/heroes.service";
 import { Heroe } from '../../interfaces/heroe.interface';
 
+import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
+import { Observable } from 'rxjs/Observable';
+
+export interface Item { nombre: string; url: string; }
+
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
