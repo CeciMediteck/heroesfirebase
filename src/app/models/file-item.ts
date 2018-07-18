@@ -1,6 +1,6 @@
 export class FileItem {
 
-    public archivo: File;
+    public archivo: File; //Archivo fisico seleccionado
     public nombreArchivo: string;
     public url: string;  //retornado por Firebase
     public estaSubiendo: boolean; //bandera indica si se sube o no

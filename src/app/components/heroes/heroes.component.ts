@@ -2,10 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { HeroesService } from "../../services/heroes.service";
 import { Heroe } from '../../interfaces/heroe.interface';
 
-import { AngularFirestore, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
-
-export interface Item { nombre: string; url: string; }
+import { FileItem } from '../../models/file-item';
+import { CargaImagenesService } from '../../services/carga-imagenes.service'
 
 @Component({
   selector: 'app-heroes',
@@ -14,11 +12,14 @@ export interface Item { nombre: string; url: string; }
 })
 export class HeroesComponent implements OnInit {
 
+  estaSobreElemento = false;
+   //variable a ocupar
+   archivos: FileItem [] = []; //Arreglo de FileItems
+
   heroes:any[] = [];
   loading: boolean = true; //indica si esta cargando o no
 
-  constructor( private _heroesService: HeroesService) { 
-
+  constructor( private _heroesService: HeroesService, public _cargaImagenes: CargaImagenesService) { 
     this._heroesService.getHeroes()
       .subscribe( (data: Heroe[]) => { 
         //Se cancela cuando se termina de cargar la Data
@@ -43,4 +44,13 @@ export class HeroesComponent implements OnInit {
           }
         })
   }
+
+  cargarImagenes() {
+    this._cargaImagenes.cargarImagenesFirebase( this.archivos );
+  }
+
+  limpiarArchivos() {
+    this.archivos = [];
+  }
+  
 }

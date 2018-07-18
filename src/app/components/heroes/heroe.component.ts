@@ -4,10 +4,6 @@ import { Router, ActivatedRoute } from "@angular/router";
 import { Heroe } from "../../interfaces/heroe.interface";
 import { HeroesService } from "../../services/heroes.service";
 
-import { FileItem } from '../../models/file-item';
-import { CargaImagenesService } from '../../services/carga-imagenes.service'
-
-
 @Component({
   selector: 'app-heroe',
   templateUrl: './heroe.component.html',
@@ -15,10 +11,6 @@ import { CargaImagenesService } from '../../services/carga-imagenes.service'
 })
 
 export class HeroeComponent implements OnInit {
-
-  estaSobreElemento = false;
-   //variable a ocupar
-   archivos: FileItem [] = []; //Arreglo de FileItems
 
   //Para poder setear datos y poder realizar el posteo de esa inf.
     public heroe:Heroe = {
@@ -33,7 +25,7 @@ export class HeroeComponent implements OnInit {
   constructor(private _heroesService: HeroesService,
     private router: Router,
     private route: ActivatedRoute,
-    public _cargaImagenes: CargaImagenesService){
+    ){
       // Esto es un observable
       this.route.params
       .subscribe( parametros => {
@@ -78,11 +70,5 @@ export class HeroeComponent implements OnInit {
       });
     }
 
-    cargarImagenes() {
-      this._cargaImagenes.cargarImagenesFirebase( this.archivos );
-    }
-
-    limpiarArchivos() {
-      this.archivos = [];
-    }
+    
 }

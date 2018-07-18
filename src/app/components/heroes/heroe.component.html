@@ -40,62 +40,9 @@ que importar en heroe.component.ts -->
             </div>
             <br>
 
-            <!-- **************************Carga de imagenes**************************** -->
-            <div class="row">
-                <!-- Carga de imagenes -->
-                <div class="col-md-4">
-                    <h3>Seleccione Archivos</h3>
-
-                    <div appNgDropDFiles [archivos]="archivos" (mouseSobre)="estaSobreElemento = $event" [ngClass]="{ 'file-over': estaSobreElemento }" class="well drop-zone">
-
-                        <h5>Deje aqui sus archivos</h5>
-                        <img src="assets/img/drop-images.png" width="100px">
-                    </div>
-
-                </div>
-
-                <div class="col-md-8">
-
-                    <h4> Cargar Archivos </h4>
-
-                    <!-- <button (click)="cargarImagenes()" [disabled]="archivos.length === 0" class="espacio btn btn-success"> Cargar a Firebase </button> -->
-                    <button (click)="limpiarArchivos()" class="espacio btn btn-danger"> Limpiar </button>
-
-                    <table class="table">
-                        <thead class="thead-dark">
-                            <tr>
-                                <th> Nombre Archivo </th>
-                                <th> Tamaño </th>
-                                <th> Progreso </th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr *ngFor="let archivo of archivos">
-                                <td [ngClass]="{ 'text-green': archivo.progreso >=100 }">
-                                    {{ archivo. nombreArchivo }}
-                                </td>
-                                <td>
-                                    <!--//objeto y probiedad-->
-                                    {{ archivo.archivo.size / 1024 /1024 | number: '.2-2' }} MB
-                                </td>
-                                <td>
-                                    <div class="progress">
-                                        <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': archivo.progreso + '%' }"></div>
-                                    </div>
-                                </td>
-                            </tr>
-                        </tbody>
-
-                    </table>
-
-                </div>
-            </div>
-
-
             <div class="form-group">
                 <!-- se deshabilita el boton si la forma no es valida -->
-                <button (click)="cargarImagenes()" [disabled]="!forma.valid" type="submit" class="btn btn-outline-primary">
+                <button [disabled]="!forma.valid" type="submit" class="btn btn-outline-primary">
                     Guardar Cambios
                 </button>
             </div>
