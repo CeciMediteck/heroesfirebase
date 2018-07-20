@@ -10,7 +10,6 @@ export class FileItem {
         //inicializacion de propiedades
         this.archivo = archivo;
         this.nombreArchivo = archivo.name;
-
         this.estaSubiendo = false;
         this. progreso = 0;
 

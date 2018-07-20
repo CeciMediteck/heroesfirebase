@@ -27,6 +27,7 @@ import { environment } from '../environments/environment';
 import { NgDropDFilesDirective } from './directives/ng-drop-dfiles.directive';
 
 import { HeroesModule } from "./components/heroes/heroes.module";
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { HeroesModule } from "./components/heroes/heroes.module";
     HeroeComponent,
     FotosComponent,
     KeysPipe,
-    NgDropDFilesDirective
+    NgDropDFilesDirective,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

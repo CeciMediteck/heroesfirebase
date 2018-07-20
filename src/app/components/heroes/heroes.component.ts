@@ -9,12 +9,12 @@ import { CargaImagenesService } from '../../services/carga-imagenes.service'
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
   styles: []
-})
+}) 
 export class HeroesComponent implements OnInit {
 
-  estaSobreElemento = false;
+  estaSobreElemento = false; //manejado en NgClass
    //variable a ocupar
-   archivos: FileItem [] = []; //Arreglo de FileItems
+   archivos: FileItem [] = []; //Arreglo de FileItems, manejado en una directiva
 
   heroes:any[] = [];
   loading: boolean = true; //indica si esta cargando o no
@@ -45,7 +45,9 @@ export class HeroesComponent implements OnInit {
         })
   }
 
-  cargarImagenes() {
+
+  //FIREBASE**********************************************
+  cargarImagenes() { //Toms losarchivos seleccionados y os manda al servicio
     this._cargaImagenes.cargarImagenesFirebase( this.archivos );
   }
 

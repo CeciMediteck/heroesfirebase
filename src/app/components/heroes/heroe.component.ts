@@ -48,7 +48,7 @@ export class HeroeComponent implements OnInit {
         //insertando
         this._heroesService.nuevoHeroe(this.heroe)
         .subscribe((data:any) => {
-          this.router.navigate(['/heroes', data.name])
+          this.router.navigate(['/heroes', data.name]) //Despues de guardar muestra la lista
         },
         error => console.error(error));
       } else {
@@ -56,6 +56,7 @@ export class HeroeComponent implements OnInit {
         this._heroesService.actualizarHeroe(this.heroe, this.id)
         .subscribe(data => {
           console.log(data);
+          this.router.navigate(['/heroes']) //Despues de actualizar regresa a la lista de heroes
         },
         error => console.error(error));
       }
@@ -63,7 +64,7 @@ export class HeroeComponent implements OnInit {
 
     agregarNuevo( forma: NgForm ){
 
-      this.router.navigate (['/heroe', 'nuevo']);
+      this.router.navigate (['/heroe', 'nuevo']); //Se mantiene en la pagina de agregar nuevo heroe 
 
       forma.reset({
         casa: "Marvel"

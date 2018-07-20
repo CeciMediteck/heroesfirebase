@@ -6,6 +6,7 @@ import {
   Input,
   Output
 } from "@angular/core";
+
 import { FileItem } from "../models/file-item";
 import { ReturnStatement } from "../../../node_modules/@angular/compiler";
 
@@ -14,7 +15,7 @@ import { ReturnStatement } from "../../../node_modules/@angular/compiler";
 })
 export class NgDropDFilesDirective {
 
-  @Input() archivos: FileItem[] = [];
+  @Input() archivos: FileItem[] = []; //Archivos que se vana  acontrolar
   @Output() mouseSobre: EventEmitter<boolean> = new EventEmitter();
 
   constructor() {}
@@ -23,7 +24,7 @@ export class NgDropDFilesDirective {
   @HostListener("dragover", ["$event"])
   public onDragEnter(event: any) {
     this.mouseSobre.emit(true);
-    this._prevenirDtetener( event );
+    this._prevenirDetener( event );
   }
 
   //Mouse se aleja
@@ -45,7 +46,7 @@ export class NgDropDFilesDirective {
 
     this._extraerArchivos( transferencia.files );
 
-    this._prevenirDtetener( event );
+    this._prevenirDetener( event );
     this.mouseSobre.emit( false );
   }
 
@@ -73,7 +74,7 @@ private _extraerArchivos( archivosLista: FileList){ //OBTIENE TODOS los archivos
 console.log(this.archivos);
  }
 
-  //Validaciones
+//********************    ....VALIDACIONES   ************************************** */
   private _archivoPuedeSerCargado ( archivo: File ): boolean {
 
     if ( !this._archivoYaFueDropeado ( archivo.name ) && this._esImagen(archivo.type)){
@@ -83,7 +84,7 @@ console.log(this.archivos);
     }
   }
 
-  private _prevenirDtetener( event ){
+  private _prevenirDetener( event ){
     event.preventDefault();
     event.stopPropagation();
   }

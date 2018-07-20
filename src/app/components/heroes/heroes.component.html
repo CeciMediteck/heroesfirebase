@@ -54,7 +54,7 @@
             </div>
         </div>
 
-    <hr>
+        <hr>
 
         <!-- **************************Carga de imagenes**************************** -->
         <div class="row">
@@ -82,7 +82,9 @@
                         <tr>
                             <th> Nombre Archivo </th>
                             <th> Tamaño </th>
+                            <th> Url </th>
                             <th> Progreso </th>
+
                         </tr>
                     </thead>
 
@@ -95,6 +97,7 @@
                                 <!--//objeto y probiedad-->
                                 {{ archivo.archivo.size / 1024 /1024 | number: '.2-2' }} MB
                             </td>
+                            <td> {{ archivo.url }} </td>
                             <td>
                                 <div class="progress">
                                     <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': archivo.progreso + '%' }"></div>
@@ -102,12 +105,10 @@
                             </td>
                         </tr>
                     </tbody>
-
                 </table>
-
             </div>
         </div>
-<hr>
+        <hr>
         <button [routerLink]="['/fotos']" class="espacio btn btn-outline-danger">
             Ver fotos
         </button>
