@@ -27,7 +27,12 @@ import { environment } from '../environments/environment';
 import { NgDropDFilesDirective } from './directives/ng-drop-dfiles.directive';
 
 import { HeroesModule } from "./components/heroes/heroes.module";
-import { LoginComponent } from './login/login.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { RegisterPageComponent } from './components/register-page/register-page.component';
+import { LoginPageComponent } from './components/login-page/login-page.component';
+import { PrivadoPageComponent } from './components/privado-page/privado-page.component';
+import { NotfoundPageComponent } from './components/notfound-page/notfound-page.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +42,12 @@ import { LoginComponent } from './login/login.component';
     FotosComponent,
     KeysPipe,
     NgDropDFilesDirective,
-    LoginComponent,
+    HomePageComponent,
+    NavbarComponent,
+    RegisterPageComponent,
+    LoginPageComponent,
+    PrivadoPageComponent,
+    NotfoundPageComponent,
   ],
   imports: [
     BrowserModule,
