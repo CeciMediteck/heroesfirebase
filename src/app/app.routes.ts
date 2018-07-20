@@ -8,20 +8,21 @@ import { FotosComponent } from "./components/heroes/fotos.component";
 import { HomePageComponent} from './components/home-page/home-page.component';
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { RegisterPageComponent} from './components/register-page/register-page.component';
-import { PrivadoPageComponent} from './components/privado-page/privado-page.component';
+//import { PrivadoPageComponent} from './components/privado-page/privado-page.component';
 import { NotfoundPageComponent} from './components/notfound-page/notfound-page.component';
 
+import { AuthGuard } from './guards/auth.guard';
 
 const app_routes: Routes = [
-    { path: 'heroes', component: HeroesComponent },
-    { path: 'heroe/:id', component: HeroeComponent },
-    { path: 'fotos', component: FotosComponent },
+    { path: 'heroes', component: HeroesComponent, canActivate: [AuthGuard] },
+    { path: 'heroe/:id', component: HeroeComponent, canActivate: [AuthGuard] },
+    { path: 'fotos', component: FotosComponent, canActivate: [AuthGuard] },
 
     //Login
     { path: '', component: HomePageComponent },
     { path: 'login', component: LoginPageComponent },
     { path: 'register', component: RegisterPageComponent },
-    { path: 'privado', component: PrivadoPageComponent },
+    //{ path: 'privado', component: PrivadoPageComponent },
 
     { path: '**', component: NotfoundPageComponent},
     //{ path: '**', pathMatch: 'full', redirectTo: 'heroes'}

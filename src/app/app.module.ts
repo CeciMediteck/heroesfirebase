@@ -23,6 +23,7 @@ import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { AuthService } from './services/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 import { environment } from '../environments/environment';
 import { NgDropDFilesDirective } from './directives/ng-drop-dfiles.directive';
@@ -66,7 +67,8 @@ import { NotfoundPageComponent } from './components/notfound-page/notfound-page.
   providers: [
     HeroesService,
     CargaImagenesService,
-    AuthService
+    AuthService,
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
