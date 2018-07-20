@@ -19,6 +19,11 @@ export class AuthService {
     return this.afAuth.auth.signInWithPopup( new firebase.auth.FacebookAuthProvider());
   }
 
+  //********Login TWITTER */
+   loginTwitter() {
+    return this.afAuth.auth.signInWithPopup( new firebase.auth.TwitterAuthProvider());
+  }
+
   //Creacion de Usuario
   registerUser(email: string, pass: string) {
     return new Promise((resolve, reject) => {

@@ -56,4 +56,11 @@ export class LoginPageComponent implements OnInit {
     }).catch( err => console.log( err.message ));
   }
 
+  //Login con Twitter
+  onClickTwitterLogin() {
+    this.authService.loginTwitter()
+    .then(( res ) => {
+      this.router.navigate(['/heroes']);
+    }).catch( err => console.log( err.message ));
+  }
 }
