@@ -1,24 +1,37 @@
-/* import { Injectable } from "@angular/core";
-import { Router } from "@angular/router";
-import { filter } from "rxjs/operators";
-import * as auth0 from "auth0-js";
+import { Injectable } from "@angular/core";
+import { AngularFireAuth } from "angularfire2/auth";
+import * as firebase from "firebase/app";
+import 'rxjs/add/operator/map';
 
-(window as any).global = window;
 
 @Injectable()
 export class AuthService {
-  auth0 = new auth0.WebAuth({
-    clientID: "ArkYkEoM9dMDsIiucHqzcwN86Fsqt7rQ",
-    domain: "ceciapphero.auth0.com",
-    responseType: "token id_token",
-    audience: "https://ceciapphero.auth0.com/userinfo",
-    redirectUri: "http://localhost:3000/callback",
-    scope: "openid"
-  });
+  constructor(public afAuth: AngularFireAuth) {}
 
-  constructor(public router: Router) {}
-
-  public login(): void {
-    this.auth0.authorize();
+  //Creacion de Usuario
+  registerUser(email: string, pass: string) {
+    return new Promise((resolve, reject) => {
+      this.afAuth.auth
+        .createUserWithEmailAndPassword(email, pass)
+        .then(userData => resolve(userData), err => reject(err));
+    });
   }
-} */
+
+  //Metodo de Login
+  loginEmail( email: string, pass: string ) {
+    return new Promise (( resolve, reject ) => {
+      this.afAuth.auth.signInWithEmailAndPassword ( email, pass )
+      .then( userData => resolve( userData ),
+    err => reject(err));
+    })
+  }
+
+  //Comprueba cuando la aplicacion carga cuando el usuario esta logado
+  getAuth(){
+    return this.afAuth.authState.map ( auth => auth);
+  }
+
+  logout() {
+    return this.afAuth.auth.signOut();
+  }
+}

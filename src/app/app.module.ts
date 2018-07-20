@@ -22,6 +22,7 @@ import { KeysPipe } from './pipes/keys.pipe';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AuthService } from './services/auth.service';
 
 import { environment } from '../environments/environment';
 import { NgDropDFilesDirective } from './directives/ng-drop-dfiles.directive';
@@ -33,6 +34,7 @@ import { RegisterPageComponent } from './components/register-page/register-page.
 import { LoginPageComponent } from './components/login-page/login-page.component';
 import { PrivadoPageComponent } from './components/privado-page/privado-page.component';
 import { NotfoundPageComponent } from './components/notfound-page/notfound-page.component';
+
 
 @NgModule({
   declarations: [
@@ -64,7 +66,7 @@ import { NotfoundPageComponent } from './components/notfound-page/notfound-page.
   providers: [
     HeroesService,
     CargaImagenesService,
-    //AuthService
+    AuthService
   ],
   bootstrap: [AppComponent]
 })
