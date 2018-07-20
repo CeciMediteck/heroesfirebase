@@ -48,4 +48,12 @@ export class LoginPageComponent implements OnInit {
     }).catch( err => console.log( err.message ));
   }
 
+  //Login con Facebook
+  onClickFacebookLogin() {
+    this.authService.loginFacebook()
+    .then(( res ) => {
+      this.router.navigate(['/heroes']);
+    }).catch( err => console.log( err.message ));
+  }
+
 }

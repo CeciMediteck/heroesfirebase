@@ -14,6 +14,11 @@ export class AuthService {
     return this.afAuth.auth.signInWithPopup( new firebase.auth.GoogleAuthProvider());
   }
 
+   //********Login FACEBOOK */
+   loginFacebook() {
+    return this.afAuth.auth.signInWithPopup( new firebase.auth.FacebookAuthProvider());
+  }
+
   //Creacion de Usuario
   registerUser(email: string, pass: string) {
     return new Promise((resolve, reject) => {
