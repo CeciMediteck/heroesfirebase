@@ -15,6 +15,7 @@ export class FotosComponent implements OnInit {
   items: Observable<Item[]>;
   private itemsCollection: AngularFirestoreCollection<Item>;
   
+  loading: boolean = true; //indica si esta cargando o no
 
   constructor( private afs: AngularFirestore ) {
     this.itemsCollection = afs.collection<Item>('img'); 

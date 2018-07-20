@@ -50,7 +50,7 @@ export class HeroeComponent implements OnInit {
         .subscribe((data:any) => {
           this.router.navigate(['/heroes', data.name]) //Despues de guardar muestra la lista
         },
-        error => console.error(error));
+        error => console.error(error))
       } else {
         //Actualizando
         this._heroesService.actualizarHeroe(this.heroe, this.id)

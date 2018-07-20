@@ -69,4 +69,18 @@ export class CargaImagenesService {
       .collection(`/${this.CARPETA_IMAGENES}`) //graba a firebase se especifica el lugar
       .add(imagen);
   }
+
+
+  borrarImagen( nombre: string ) {
+    const storageRef = firebase.storage().ref();
+    let ruta = 'galeria-img';
+    let ref = storageRef.child(`${ ruta }/${ nombre }`);
+    ref.delete().then(function() {
+      // Archivo borrado exitosamente
+      this.eliminarImagenDB(ruta, nombre);
+    }).catch(function(error) {
+      console.error('Error ', error);
+    });
+  }
+
 }

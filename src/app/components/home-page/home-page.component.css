@@ -1,0 +1,8 @@
+.col-md-6 {
+    --display: flex;
+    width: 200%;
+    display: block;
+    margin-left: 183px;
+    margin-right: auto;
+    margin-top: 20px;
+}

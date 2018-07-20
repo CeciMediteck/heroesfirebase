@@ -34,12 +34,8 @@
                         <td>{{ heroes[k].bio }}</td>
                         <td class="text-right w120 ">
                             <!-- k es la llave -->
-                            <button [routerLink]="['/heroe', k]" type="button" class=" espacio btn btn-outline-success">
-                        Editar
-                      </button>
-                            <button (click)="borraHeroe(k)" type="button" class="espacio btn btn-outline-danger">
-                        Eliminar
-                      </button>
+                            <button [routerLink]="['/heroe', k]" type="button" class=" espacio btn btn-outline-success"> Editar </button>
+                            <button (click)="borraHeroe(k)" type="button" class="espacio btn btn-outline-danger"> Eliminar </button>
                         </td>
                     </tr>
                 </tbody>
@@ -82,7 +78,6 @@
                         <tr>
                             <th> Nombre Archivo </th>
                             <th> Tamaño </th>
-                            <th> Url </th>
                             <th> Progreso </th>
 
                         </tr>
@@ -97,7 +92,6 @@
                                 <!--//objeto y probiedad-->
                                 {{ archivo.archivo.size / 1024 /1024 | number: '.2-2' }} MB
                             </td>
-                            <td> {{ archivo.url }} </td>
                             <td>
                                 <div class="progress">
                                     <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': archivo.progreso + '%' }"></div>

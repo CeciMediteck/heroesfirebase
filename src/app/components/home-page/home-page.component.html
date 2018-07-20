@@ -1,9 +1,16 @@
-<div class="jumbotron mt-3">
-    <h1 class="display-3">HOME PAGE</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <hr class="my-4">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <p class="lead">
-        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
-    </p>
+<div class="main-container">
+    <div class="jumbotron mt-3">
+        <h1 class="display-3">Bienvenido a HeroesApp</h1>
+        <p class="lead">Registra tus Heroes Favoritos</p>
+        <hr class="my-4">
+
+        <div class="col-md-6 ">
+            <img src="./assets/img/home-page.png" width="500" alt="HeroAPP">
+            <div class="h-30"></div>
+        </div>
+
+        <p class="lead">
+            <a class="btn btn-primary btn-lg center" [routerLink]="['/heroe', 'nuevo']" role="button"> Registrar Heroes</a>
+        </p>
+    </div>
 </div>
