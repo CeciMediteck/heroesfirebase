@@ -8,9 +8,10 @@ import { AuthService } from '../../services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  public isLogin: boolean;
+  public isLogin: boolean; //Para verificar si esta logado
   public nombreUsuario: string;
   public emailUsuario: string;
+  public fotoUsuario: string;
 
   constructor(
     public authService: AuthService
@@ -22,6 +23,7 @@ export class NavbarComponent implements OnInit {
         this.isLogin = true;
         this.nombreUsuario = auth.displayName;
         this.emailUsuario = auth.email;
+        this.fotoUsuario = auth.photoURL;
       } else {
         this.isLogin = false;
       }

@@ -21,7 +21,7 @@ export class LoginPageComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  //Login de Usuario
   onSubmitLogin(){
     this.authService.loginEmail( this.email, this.password )
     .then(( res ):any => { //agregue.any
@@ -37,6 +37,15 @@ export class LoginPageComponent implements OnInit {
         timeout: 6000});
       this.router.navigate ([ '/login' ]);
     });
+  }
+
+  //Login con Google
+  onClickGoogleLogin() {
+    //console.log('Bien Gooogle');
+    this.authService.loginGoogle()
+    .then(( res ) => {
+      this.router.navigate(['/heroes']);
+    }).catch( err => console.log( err.message ));
   }
 
 }

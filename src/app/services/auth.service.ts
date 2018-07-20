@@ -8,6 +8,12 @@ import 'rxjs/add/operator/map';
 export class AuthService {
   constructor(public afAuth: AngularFireAuth) {}
 
+
+  //********Login GOOGLE */
+  loginGoogle() {
+    return this.afAuth.auth.signInWithPopup( new firebase.auth.GoogleAuthProvider());
+  }
+
   //Creacion de Usuario
   registerUser(email: string, pass: string) {
     return new Promise((resolve, reject) => {
@@ -27,7 +33,7 @@ export class AuthService {
   }
 
   //Comprueba cuando la aplicacion carga cuando el usuario esta logado
-  getAuth(){
+  getAuth(){ //recupera alguien logado
     return this.afAuth.authState.map ( auth => auth);
   }
 
