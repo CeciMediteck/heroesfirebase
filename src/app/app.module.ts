@@ -18,6 +18,8 @@ import { FotosComponent } from './components/heroes/fotos.component'
 import { HttpClientModule } from '@angular/common/http';
 import { KeysPipe } from './pipes/keys.pipe';
 
+import { FlashMessagesModule } from 'angular2-flash-messages';
+import { FlashMessagesService } from 'angular2-flash-messages';
 //Firebase
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
@@ -61,6 +63,7 @@ import { NotfoundPageComponent } from './components/notfound-page/notfound-page.
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    FlashMessagesModule,
 
     HeroesModule
   ],
@@ -68,7 +71,8 @@ import { NotfoundPageComponent } from './components/notfound-page/notfound-page.
     HeroesService,
     CargaImagenesService,
     AuthService,
-    AuthGuard
+    AuthGuard,
+    FlashMessagesService
   ],
   bootstrap: [AppComponent]
 })
