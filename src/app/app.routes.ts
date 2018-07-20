@@ -23,7 +23,7 @@ const app_routes: Routes = [
     { path: 'register', component: RegisterPageComponent },
     { path: 'privado', component: PrivadoPageComponent },
 
-    { path: '**', component: NotfoundPageComponent}
+    { path: '**', component: NotfoundPageComponent},
     //{ path: '**', pathMatch: 'full', redirectTo: 'heroes'}
 ];
 

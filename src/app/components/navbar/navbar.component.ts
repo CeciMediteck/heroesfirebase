@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  public isLogin: boolean;
+  public nombreUsuario: string;
+  public emailUsuario: string;
 
-  ngOnInit() {
+  constructor(
+    public authService: AuthService
+  ) { }
+
+  ngOnInit() { //Este es el primero que se ejecuta cuando la aplicacionn carga
+    this.authService.getAuth().subscribe( auth => {
+      if( auth ) {
+        this.isLogin = true;
+        this.nombreUsuario = auth.displayName;
+        this.emailUsuario = auth.email;
+      } else {
+        this.isLogin = false;
+      }
+    })
   }
 
+
+  onClickLogout(){
+    this.authService.logout();
+  }
 }
